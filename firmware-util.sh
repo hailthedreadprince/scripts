@@ -45,7 +45,19 @@ if [ ! -d "$script_dir/.git" ]; then
 
     #get support scripts
     echo -e "\nDownloading supporting files..."
-
+    rm -rf firmware.sh >/dev/null 2>&1
+    rm -rf functions.sh >/dev/null 2>&1
+    rm -rf sources.sh >/dev/null 2>&1
+    $CURL -sLO https://raw.githubusercontent.com/hailthedreadprince/scripts/master/firmware.sh
+    rc0=$?
+    $CURL -sLO https://raw.githubusercontent.com/hailthedreadprince/scripts/master/functions.sh
+    rc1=$?
+    $CURL -sLO https://raw.githubusercontent.com/hailthedreadprince/scripts/master/sources.sh
+    rc2=$?
+    if [[ $rc0 -ne 0 || $rc1 -ne 0 || $rc2 -ne 0 ]]; then
+	    echo -e "Error downloading one or more required files; cannot continue"
+	    exit 1
+    fi
 fi
 
 source $script_dir/sources.sh
@@ -83,4 +95,4 @@ function check_unsupported() {
     fi
 }
 
-menu_fwupdate
+flasth_rwlegacy
