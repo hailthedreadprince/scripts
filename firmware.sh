@@ -1082,7 +1082,7 @@ function stock_menu() {
 	show_header
 
 	if [[ "$unlockMenu" = true || ( "$isFullRom" = false && "$isBootStub" = false && "$isUnsupported" = false \
-			&& "$isCmlBook" = false && "$isEOL" = false ) ]]; then
+			&& "$isCmlBook" = false && "$isEOL" = true ) ]]; then
 		echo -e "${MENU}**${WP_TEXT}     ${NUMBER} 1)${MENU} Install/Update RW_LEGACY Firmware ${NORMAL}"
 	else
 		echo -e "${GRAY_TEXT}**     ${GRAY_TEXT} 1)${GRAY_TEXT} Install/Update RW_LEGACY Firmware ${NORMAL}"
