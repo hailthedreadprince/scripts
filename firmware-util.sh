@@ -95,4 +95,4 @@ function check_unsupported() {
     fi
 }
 
-flasth_rwlegacy
+menu_fwupdate
